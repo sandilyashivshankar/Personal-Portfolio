@@ -7,8 +7,55 @@ from .common import section_heading
 
 def render_contact(profile):
     st.markdown('<section id="contact">', unsafe_allow_html=True)
-    section_heading("08 / CONTACT", "Let's build something <span class='accent'>intelligent</span>.",
+    section_heading("08 / CONTACT", "Let's build something <span class='accent'>intelligent</span>",
                    "Have an idea, opportunity or collaboration in mind? Start the conversation.")
+
+    st.markdown("""
+<style>
+#contact .contact-form-fix input,
+#contact .contact-form-fix textarea,
+#contact .stTextInput input,
+#contact .stTextArea textarea {
+    background: rgba(255,255,255,0.08) !important;
+    color: #f8fafc !important;
+    -webkit-text-fill-color: #f8fafc !important;
+    border: 1px solid rgba(148,163,184,0.35) !important;
+    border-radius: 12px !important;
+    caret-color: #22d3ee !important;
+}
+#contact .stTextInput input::placeholder,
+#contact .stTextArea textarea::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+}
+#contact .stTextInput input:focus,
+#contact .stTextArea textarea:focus {
+    background: rgba(255,255,255,0.11) !important;
+    border-color: #22d3ee !important;
+    box-shadow: 0 0 0 3px rgba(34,211,238,0.16), 0 0 24px rgba(34,211,238,0.10) !important;
+}
+#contact [data-testid="stWidgetLabel"] p,
+#contact .stTextInput label,
+#contact .stTextArea label {
+    color: #e5e7eb !important;
+    font-weight: 650 !important;
+}
+#contact .stFormSubmitButton > button {
+    background: linear-gradient(135deg, #06b6d4, #3b82f6 48%, #8b5cf6) !important;
+    color: #ffffff !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    font-weight: 750 !important;
+    box-shadow: 0 10px 30px rgba(59,130,246,0.25) !important;
+}
+#contact .stFormSubmitButton > button:hover {
+    color: #ffffff !important;
+    filter: brightness(1.1) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 38px rgba(139,92,246,0.35) !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
     left, right = st.columns([0.85, 1.15], gap="large")
 
@@ -27,7 +74,7 @@ def render_contact(profile):
         )
 
     with right:
-        st.markdown('<div class="glass-card form-shell">', unsafe_allow_html=True)
+        st.markdown('<div class="glass-card form-shell contact-form-fix">', unsafe_allow_html=True)
         with st.form("contact_form", clear_on_submit=True):
             name = st.text_input("Name", placeholder="Your name")
             email = st.text_input("Email", placeholder="you@example.com")
