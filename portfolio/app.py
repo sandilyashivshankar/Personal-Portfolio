@@ -15,7 +15,6 @@ from components.hero import render_hero
 from components.about import render_about
 from components.skills import render_skills
 from components.projects import render_projects
-from components.github import render_github
 from components.certificates import render_certificates
 from components.timeline import render_timeline
 from components.analytics import render_analytics
@@ -59,7 +58,6 @@ render_hero(PROFILE)
 render_about(PROFILE, STATS)
 render_skills()
 render_projects(PROJECTS)
-render_github(PROFILE)
 render_timeline(EXPERIENCE)
 render_certificates(CERTIFICATES)
 render_analytics()
