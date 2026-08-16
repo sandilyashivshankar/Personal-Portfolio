@@ -33,7 +33,6 @@ def _load_profile_photo() -> str:
             encoded = base64.b64encode(photo_path.read_bytes()).decode("ascii")
             return f"<img class='hero-photo' src='data:{mime};base64,{encoded}' alt='Shiv Shankar Tiwari profile photo'>"
 
-    # The requested photo lives at the root of the Personal-Portfolio repository.
     return f"<img class='hero-photo' src='{PROFILE_PHOTO_URL}' alt='Shiv Shankar Tiwari profile photo'>"
 
 
@@ -45,7 +44,6 @@ def render_hero(profile: dict):
 <section id="home" class="hero">
 <div class="hero-orbit"></div>
 <div class="hero-content-layer">
-<div class="hero-badge"><span class="pulse"></span> Open to data & AI opportunities</div>
 <div class="hero-photo-wrap">{photo_html}</div>
 <h1>Hi, I'm <span class="highlight">{html.escape(profile["name"])}</span></h1>
 <div class="role">{role}</div>
