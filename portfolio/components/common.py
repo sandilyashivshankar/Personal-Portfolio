@@ -3,15 +3,15 @@ import streamlit as st
 
 
 def section_heading(eyebrow: str, title: str, subtitle: str = ""):
+    """Render a clean section heading without numbered eyebrow labels."""
     subtitle_html = f'<p class="section-subtitle">{html.escape(subtitle)}</p>' if subtitle else ""
     st.markdown(
         f"""
-        <div class="section-wrap reveal">
-          <span class="section-eyebrow">{html.escape(eyebrow)}</span>
-          <h2 class="section-title">{title}</h2>
-          {subtitle_html}
-        </div>
-        """,
+<div class="section-wrap reveal">
+  <h2 class="section-title">{title}</h2>
+  {subtitle_html}
+</div>
+""",
         unsafe_allow_html=True,
     )
 
