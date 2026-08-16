@@ -13,7 +13,7 @@ CERTIFICATES = [
         "date": "2025",
         "file": "assets/certificates/Artificial_Intelligence_Analyst_IBM.pdf",
         "credential": "",
-        "summary": "Completed and received a passing grade in Artificial Intelligence Analyst.",
+        "summary": "A recognized learning credential documenting successful completion of the Artificial Intelligence Analyst program, strengthening my foundation in AI concepts and analytical problem-solving.",
     },
     {
         "title": "Data Analytics using Excel",
@@ -21,7 +21,7 @@ CERTIFICATES = [
         "date": "15 July 2023",
         "file": "assets/certificates/Data_Analytics_using_Excel_TCS.pdf",
         "credential": "",
-        "summary": "Certificate of Participation in Data Analytics using Excel; overall grade B.",
+        "summary": "Certificate of Participation in Data Analytics using Excel, demonstrating formal learning exposure to spreadsheet-based data analysis and reporting; overall grade B.",
     },
     {
         "title": "Data Analysis with Python",
@@ -29,7 +29,7 @@ CERTIFICATES = [
         "date": "2025",
         "file": "assets/certificates/Data_Analysis_with_Python_IBM.pdf",
         "credential": "",
-        "summary": "Completed and received a passing grade in Data Analysis with Python.",
+        "summary": "A learning credential documenting successful completion of Data Analysis with Python, supporting my practical foundation in Python-based data analysis.",
     },
     {
         "title": "Deep Learning Fundamentals",
@@ -37,7 +37,7 @@ CERTIFICATES = [
         "date": "2025",
         "file": "assets/certificates/Deep_Learning_Fundamentals_IBM.pdf",
         "credential": "",
-        "summary": "Completed and received a passing grade in Deep Learning Fundamentals.",
+        "summary": "A learning credential documenting successful completion of Deep Learning Fundamentals and continued study of foundational deep-learning concepts.",
     },
     {
         "title": "Data Science Methodology",
@@ -45,7 +45,7 @@ CERTIFICATES = [
         "date": "16 March 2025",
         "file": "assets/certificates/Data_Science_Methodology_IBM.pdf",
         "credential": "https://courses.srmcem.skillsnetwork.site/certificates/bc78ad5b8d74f25ba21dc3e577f4b428",
-        "summary": "Completed and received a passing grade in Data Science Methodology.",
+        "summary": "A verified learning credential documenting successful completion of Data Science Methodology, reflecting structured learning around the data-science process.",
     },
     {
         "title": "Predictive Modeling Fundamentals I",
@@ -53,7 +53,7 @@ CERTIFICATES = [
         "date": "2025",
         "file": "assets/certificates/Predictive_Modeling_Fundamentals_I_IBM.pdf",
         "credential": "",
-        "summary": "Completed and received a passing grade in Predictive Modeling Fundamentals I.",
+        "summary": "A learning credential documenting successful completion of Predictive Modeling Fundamentals I and focused study of foundational predictive-modeling concepts.",
     },
     {
         "title": "Predictive Modeling Fundamentals I",
@@ -61,6 +61,6 @@ CERTIFICATES = [
         "date": "8 May 2024",
         "file": "assets/certificates/Predictive_Modeling_Fundamentals_I_Cognitive_Class.pdf",
         "credential": "https://courses.cognitiveclass.ai/certificates/d04b7a67572d43a9beda3fd475e33d4c",
-        "summary": "Certificate from Cognitive Class for Predictive Modeling Fundamentals I.",
+        "summary": "A verified Cognitive Class credential for Predictive Modeling Fundamentals I, documenting focused learning in foundational predictive-modeling concepts.",
     },
 ]
