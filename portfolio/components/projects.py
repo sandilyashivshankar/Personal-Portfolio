@@ -91,7 +91,10 @@ def render_projects(projects):
     )
     st.markdown(f'<div class="project-filter">{pills}</div>', unsafe_allow_html=True)
 
-    cards = "".join(project_card(project) for project in projects)
+    # The featured project is already rendered above; only render the remaining
+    # project cards here so Shiv AI Video Assistant appears once.
+    remaining_projects = [p for p in projects if p is not featured]
+    cards = "".join(project_card(project) for project in remaining_projects)
     st.markdown(f'<div class="project-grid">{cards}</div>', unsafe_allow_html=True)
 
     st.components.v1.html(
