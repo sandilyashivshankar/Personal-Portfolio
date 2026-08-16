@@ -1,5 +1,13 @@
 CERTIFICATES = [
     {
+        "title": "Data Science Internship Certificate",
+        "issuer": "Unified Mentor Pvt. Ltd.",
+        "date": "20 June 2024",
+        "file": "assets/certificates/Unified_Mentor_Data_Science_Internship.pdf",
+        "credential": "",
+        "summary": "Certificate of Internship for successfully completing a one-month Data Science internship at Unified Mentor Pvt. Ltd. from 20 May 2024 to 20 June 2024.",
+    },
+    {
         "title": "Artificial Intelligence Analyst",
         "issuer": "IBM Developer Skills Network / Shri Ramswaroop Memorial University",
         "date": "2025",
