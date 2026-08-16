@@ -5,14 +5,17 @@ from pathlib import Path
 import streamlit as st
 
 
+PROFILE_PHOTO_URL = "https://raw.githubusercontent.com/sandilyashivshankar/Personal-Portfolio/main/Shiv_PF.jpeg"
+
+
 def _portfolio_html(raw_html: str) -> str:
     """Normalize generated HTML so Streamlit does not treat it as a code block."""
     lines = raw_html.strip("\n").splitlines()
     return "\n".join(line.lstrip() for line in lines)
 
 
-def _load_profile_photo() -> str | None:
-    """Load the first available profile image, supporting JPG/JPEG/PNG variants."""
+def _load_profile_photo() -> str:
+    """Use the supplied GitHub profile photo, with local-file fallback support."""
     candidates = [
         Path("assets/images/profile.jpg"),
         Path("assets/images/profile.jpeg"),
@@ -28,18 +31,15 @@ def _load_profile_photo() -> str | None:
             suffix = photo_path.suffix.lower()
             mime = "image/png" if suffix == ".png" else "image/jpeg"
             encoded = base64.b64encode(photo_path.read_bytes()).decode("ascii")
-            return f"<img class='hero-photo' src='data:{mime};base64,{encoded}' alt='Profile photo'>"
+            return f"<img class='hero-photo' src='data:{mime};base64,{encoded}' alt='Shiv Shankar Tiwari profile photo'>"
 
-    return None
+    # The requested photo lives at the root of the Personal-Portfolio repository.
+    return f"<img class='hero-photo' src='{PROFILE_PHOTO_URL}' alt='Shiv Shankar Tiwari profile photo'>"
 
 
 def render_hero(profile: dict):
-    initials = "".join(part[0] for part in profile["name"].split()[:2]).upper()
     role = " <span class='sep'>•</span> ".join(profile["roles"])
-
     photo_html = _load_profile_photo()
-    if photo_html is None:
-        photo_html = f'<div class="hero-photo-fallback">{html.escape(initials)}</div>'
 
     markup = f"""
 <section id="home" class="hero">
@@ -59,7 +59,6 @@ def render_hero(profile: dict):
 <a class="social-pill" href="{html.escape(profile["linkedin"])}" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
 <a class="social-pill" href="mailto:{html.escape(profile["email"])}" aria-label="Email">✉</a>
 </div>
-<div class="mini-terminal"><span class="prompt">shiv@portfolio</span><span class="command">:~$ build --insights --ai --impact</span><span style="color:#34d399"> ✓ ready</span><span class="cursor">▌</span></div>
 <div class="availability">Available for meaningful projects & opportunities</div>
 </div>
 <div class="scroll-cue">Scroll <span class="line"></span></div>
