@@ -46,8 +46,10 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-css_path = BASE_DIR / "styles" / "main.css"
-st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
+for stylesheet in ("styles/main.css", "styles/projects.css"):
+    css_path = BASE_DIR / stylesheet
+    if css_path.exists():
+        st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
 render_background()
 render_loader()
@@ -106,6 +108,5 @@ st.components.v1.html(
     height=0,
 )
 
-# Never display or commit secret values.
 if not os.getenv("GITHUB_TOKEN"):
     pass
