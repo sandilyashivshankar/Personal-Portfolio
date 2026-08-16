@@ -2,7 +2,13 @@ PROFILE = {
     "name": "Shiv Shankar Tiwari",
     "short_name": "SST",
     "headline": "Data Analyst",
-    "roles": ["Data Analyst", "AI & ML Enthusiast", "Problem Solver"],
+    "roles": [
+        "Data Analyst",
+        "Data Scientist",
+        "AI & ML Enthusiast",
+        "BI Developer",
+        "Problem Solver",
+    ],
     "location": "Lucknow, Uttar Pradesh, India",
     "email": "shivshankartiwari312@gmail.com",
     "github": "https://github.com/sandilyashivshankar",
@@ -12,9 +18,9 @@ PROFILE = {
         "and use analytical thinking, AI/ML and automation to solve real-world problems."
     ),
     "about": (
-        "I am a Computer Science graduate focused on Data Analytics, Artificial Intelligence "
-        "and Machine Learning. I enjoy turning messy information into clear stories, useful "
-        "dashboards and practical intelligent applications."
+        "I am a Computer Science graduate focused on Data Analytics, Data Science, Artificial Intelligence "
+        "and Machine Learning. I enjoy turning messy information into clear stories, useful dashboards, "
+        "business intelligence and practical intelligent applications."
     ),
     "education": "B.Tech in Computer Science Engineering — Data Science & Artificial Intelligence",
     "university": "Shree Ram Swaroop Memorial University, Lucknow",
