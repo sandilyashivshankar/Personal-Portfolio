@@ -4,7 +4,7 @@ from .common import section_heading
 
 
 SKILLS = {
-    "Programming": ["Python"],
+    "Programming": ["Python", "Java", "C"],
     "Data Analytics": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA", "Data Cleaning"],
     "AI / Machine Learning": ["Machine Learning", "Scikit-learn", "TensorFlow", "AI"],
     "Generative AI & LLM": ["GenAI", "LLM", "RAG", "AI Agents", "Prompt Engineering"],
