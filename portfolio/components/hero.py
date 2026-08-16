@@ -42,6 +42,27 @@ def render_hero(profile: dict):
 
     markup = f"""
 <section id="home" class="hero">
+<style>
+.hero-content-layer {{
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}}
+.hero-content-layer .hero-photo-wrap,
+.hero-content-layer h1,
+.hero-content-layer .role,
+.hero-content-layer .statement,
+.hero-content-layer .hero-ctas,
+.hero-content-layer .hero-socials {{
+  margin-left:auto;
+  margin-right:auto;
+}}
+</style>
 <div class="hero-orbit"></div>
 <div class="hero-content-layer">
 <div class="hero-photo-wrap">{photo_html}</div>
