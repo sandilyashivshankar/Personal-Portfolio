@@ -11,15 +11,34 @@ def _portfolio_html(raw_html: str) -> str:
     return "\n".join(line.lstrip() for line in lines)
 
 
+def _load_profile_photo() -> str | None:
+    """Load the first available profile image, supporting JPG/JPEG/PNG variants."""
+    candidates = [
+        Path("assets/images/profile.jpg"),
+        Path("assets/images/profile.jpeg"),
+        Path("assets/images/profile.JPG"),
+        Path("assets/images/profile.JPEG"),
+        Path("assets/images/profile.png"),
+        Path("assets/images/Profile.jpg"),
+        Path("assets/images/Profile.jpeg"),
+    ]
+
+    for photo_path in candidates:
+        if photo_path.exists() and photo_path.is_file():
+            suffix = photo_path.suffix.lower()
+            mime = "image/png" if suffix == ".png" else "image/jpeg"
+            encoded = base64.b64encode(photo_path.read_bytes()).decode("ascii")
+            return f"<img class='hero-photo' src='data:{mime};base64,{encoded}' alt='Profile photo'>"
+
+    return None
+
+
 def render_hero(profile: dict):
     initials = "".join(part[0] for part in profile["name"].split()[:2]).upper()
     role = " <span class='sep'>•</span> ".join(profile["roles"])
 
-    photo_path = Path("assets/images/profile.jpg")
-    if photo_path.exists():
-        encoded = base64.b64encode(photo_path.read_bytes()).decode("ascii")
-        photo_html = f'<img class="hero-photo" src="data:image/jpeg;base64,{encoded}" alt="{html.escape(profile["name"])}">'
-    else:
+    photo_html = _load_profile_photo()
+    if photo_html is None:
         photo_html = f'<div class="hero-photo-fallback">{html.escape(initials)}</div>'
 
     markup = f"""
