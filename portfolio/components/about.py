@@ -23,18 +23,14 @@ def render_about(profile, stats):
 .about-role-line {{ display:flex; flex-wrap:wrap; gap:.55rem; }}
 .role-chip {{ display:inline-flex; align-items:center; padding:.5rem .85rem; border:1px solid rgba(34,211,238,.22); border-radius:999px; background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(139,92,246,.10)); color:var(--text-1); font-size:.86rem; font-weight:650; box-shadow:0 8px 28px rgba(34,211,238,.06); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }}
 .role-chip:hover {{ transform:translateY(-2px); border-color:rgba(34,211,238,.5); box-shadow:0 10px 30px rgba(139,92,246,.16); }}
-.about-availability {{ margin-left:auto; white-space:nowrap; display:inline-flex; align-items:center; gap:.45rem; }}
-.about-availability .pulse {{ width:8px; height:8px; border-radius:50%; background:#34d399; box-shadow:0 0 12px rgba(52,211,153,.65); }}
 .about-lead {{ max-width:900px; margin:0 0 1rem; color:var(--text-1); font-size:1.08rem; line-height:1.8; }}
 .about-lead.secondary {{ color:var(--text-2); font-size:1rem; }}
 .about-lead strong {{ color:var(--text-0); }}
 .about-intro {{ margin-bottom:2.4rem; }}
-@media (max-width:760px) {{ .about-availability {{ margin-left:0; }} }}
 </style>
 <div class="about-intro reveal">
   <div class="about-identity">
     <div class="about-role-line">{roles}</div>
-    <div class="availability about-availability"><span class="pulse"></span> Open to data &amp; AI opportunities</div>
   </div>
   <p class="about-lead"><strong>I turn data into insights, insights into decisions, and ideas into practical AI solutions.</strong> I enjoy working where technology, analytics and real-world business problems meet.</p>
   <p class="about-lead secondary">My work spans <strong>Data Analytics, Data Science, Artificial Intelligence, Machine Learning and Business Intelligence</strong>. I build dashboards, predictive models, intelligent assistants, RAG systems and automation workflows with a focus on clarity, usefulness and measurable impact.</p>
