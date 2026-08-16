@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import textwrap
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -33,16 +34,25 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Load CSS once per Streamlit run.
+# Streamlit's Markdown parser can interpret deeply-indented multiline HTML as a
+# Markdown code block. The portfolio uses component templates with indentation,
+# so normalize HTML before every markdown render. Plain Markdown is unaffected.
+_original_markdown = st.markdown
+
+def _portfolio_markdown(body="", *args, **kwargs):
+    if isinstance(body, str):
+        body = textwrap.dedent(body).strip("\n")
+    return _original_markdown(body, *args, **kwargs)
+
+st.markdown = _portfolio_markdown
+
 css_path = BASE_DIR / "styles" / "main.css"
 st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
 
-# Background + chrome
 render_background()
 render_loader()
 render_navbar()
 
-# Main experience
 render_hero(PROFILE)
 render_about(PROFILE, STATS)
 render_skills()
@@ -56,8 +66,7 @@ render_resume()
 render_contact(PROFILE)
 render_footer(PROFILE)
 
-# Tiny client-side enhancement for navbar state / reveal effects.
-# Kept isolated and non-essential: if the browser blocks it, CSS remains usable.
+# Client-side enhancements are optional; the portfolio remains usable without JS.
 st.components.v1.html(
     """
     <script>
@@ -67,7 +76,6 @@ st.components.v1.html(
       const html = doc.documentElement;
       html.classList.add("portfolio-js-ready");
 
-      const nav = doc.querySelector(".glass-navbar");
       const reveal = () => {
         doc.querySelectorAll(".reveal").forEach(el => {
           const r = el.getBoundingClientRect();
@@ -76,6 +84,7 @@ st.components.v1.html(
       };
 
       const onScroll = () => {
+        const nav = doc.querySelector(".glass-navbar");
         if (nav) nav.classList.toggle("scrolled", parent.scrollY > 24);
         reveal();
       };
@@ -97,6 +106,6 @@ st.components.v1.html(
     height=0,
 )
 
-# Optional deployment check: never display secret values.
+# Never display or commit secret values.
 if not os.getenv("GITHUB_TOKEN"):
     pass
