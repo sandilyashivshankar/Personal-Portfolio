@@ -25,6 +25,7 @@ from components.contact import render_contact
 from components.footer import render_footer
 
 BASE_DIR = Path(__file__).resolve().parent
+os.chdir(BASE_DIR)
 load_dotenv(BASE_DIR / ".env")
 
 st.set_page_config(
@@ -35,8 +36,7 @@ st.set_page_config(
 )
 
 # Streamlit's Markdown parser can interpret deeply-indented multiline HTML as a
-# Markdown code block. The portfolio uses component templates with indentation,
-# so normalize HTML before every markdown render. Plain Markdown is unaffected.
+# Markdown code block. Normalize component templates before every markdown render.
 _original_markdown = st.markdown
 
 def _portfolio_markdown(body="", *args, **kwargs):
