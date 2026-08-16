@@ -23,12 +23,11 @@ def _project_visual(project: dict) -> str:
 
 def project_card(project):
     features = "".join(f"<li>{html.escape(x)}</li>" for x in project["features"])
-    links = []
-    if project.get("github"):
-        links.append(f'<a class="link-btn primary" href="{_safe_url(project["github"])}" target="_blank" rel="noreferrer">GitHub ↗</a>')
-    if project.get("demo"):
-        links.append(f'<a class="link-btn" href="{_safe_url(project["demo"])}" target="_blank" rel="noreferrer">Live Demo ↗</a>')
-    links_html = "".join(links) or '<span class="link-btn" style="opacity:.55">Demo coming soon</span>'
+    demo = project.get("demo", "")
+    links_html = (
+        f'<a class="link-btn" href="{_safe_url(demo)}" target="_blank" rel="noreferrer">Live Demo ↗</a>'
+        if demo else ""
+    )
     category = html.escape(project.get("category", "All"))
     return f"""
 <div class="glass-card project-card reveal" data-category="{category}">
@@ -48,7 +47,7 @@ def project_card(project):
 def render_projects(projects):
     st.markdown('<section id="projects">', unsafe_allow_html=True)
     section_heading(
-        "03 / SELECTED WORK",
+        "",
         "Projects with <span class='accent'>purpose</span>.",
         "Seven highlighted builds across Generative AI, RAG, agentic systems, machine learning and business intelligence."
     )
@@ -56,6 +55,12 @@ def render_projects(projects):
     featured = next((p for p in projects if p.get("featured")), projects[0])
     feature_list = "".join(f"<li>{html.escape(x)}</li>" for x in featured["features"])
     featured_image = _safe_url(featured.get("image", ""))
+    featured_demo = featured.get("demo", "")
+    featured_demo_html = (
+        f'<a class="btn btn-primary" href="{_safe_url(featured_demo)}" target="_blank" rel="noreferrer">Live Demo ↗</a>'
+        if featured_demo else ""
+    )
+
     st.markdown(
         f"""
 <div class="featured-project reveal featured-project-image" style="--featured-image:url('{featured_image}')">
@@ -68,8 +73,7 @@ def render_projects(projects):
       <div>
         <div class="tech-badges">{tech_badges(featured["tech"])}</div>
         <div class="hero-ctas" style="justify-content:flex-start;margin:1.2rem 0 0;">
-          <a class="btn btn-primary" href="{_safe_url(featured["github"])}" target="_blank" rel="noreferrer">View Repository ↗</a>
-          <a class="btn btn-ghost" href="{_safe_url(featured.get("demo", ""))}" target="_blank" rel="noreferrer">Live Demo ↗</a>
+          {featured_demo_html}
         </div>
       </div>
       <ul class="feature-list">{feature_list}</ul>
