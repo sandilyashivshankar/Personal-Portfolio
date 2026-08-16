@@ -15,34 +15,45 @@ def render_contact(profile):
 #contact .contact-form-fix input,
 #contact .contact-form-fix textarea,
 #contact .stTextInput input,
-#contact .stTextArea textarea {
-    background: rgba(255,255,255,0.08) !important;
-    color: #f8fafc !important;
-    -webkit-text-fill-color: #f8fafc !important;
-    border: 1px solid rgba(148,163,184,0.35) !important;
+#contact .stTextArea textarea,
+#contact .contact-form-fix [data-baseweb="input"] input,
+#contact .contact-form-fix [data-baseweb="textarea"] textarea {
+    background: #ffffff !important;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    opacity: 1 !important;
+    border: 2px solid #22d3ee !important;
     border-radius: 12px !important;
-    caret-color: #22d3ee !important;
+    caret-color: #111827 !important;
 }
 #contact .stTextInput input::placeholder,
-#contact .stTextArea textarea::placeholder {
-    color: #94a3b8 !important;
+#contact .stTextArea textarea::placeholder,
+#contact .contact-form-fix input::placeholder,
+#contact .contact-form-fix textarea::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
     opacity: 1 !important;
 }
 #contact .stTextInput input:focus,
-#contact .stTextArea textarea:focus {
-    background: rgba(255,255,255,0.11) !important;
-    border-color: #22d3ee !important;
-    box-shadow: 0 0 0 3px rgba(34,211,238,0.16), 0 0 24px rgba(34,211,238,0.10) !important;
+#contact .stTextArea textarea:focus,
+#contact .contact-form-fix [data-baseweb="input"] input:focus,
+#contact .contact-form-fix [data-baseweb="textarea"] textarea:focus {
+    background: #ffffff !important;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 3px rgba(139,92,246,0.20), 0 0 24px rgba(34,211,238,0.12) !important;
 }
 #contact [data-testid="stWidgetLabel"] p,
 #contact .stTextInput label,
 #contact .stTextArea label {
-    color: #e5e7eb !important;
+    color: #f4f6ff !important;
     font-weight: 650 !important;
 }
 #contact .stFormSubmitButton > button {
     background: linear-gradient(135deg, #06b6d4, #3b82f6 48%, #8b5cf6) !important;
     color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
     border: 0 !important;
     border-radius: 12px !important;
     font-weight: 750 !important;
@@ -50,6 +61,7 @@ def render_contact(profile):
 }
 #contact .stFormSubmitButton > button:hover {
     color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
     filter: brightness(1.1) !important;
     transform: translateY(-2px);
     box-shadow: 0 14px 38px rgba(139,92,246,0.35) !important;
