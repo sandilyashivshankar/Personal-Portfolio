@@ -1,12 +1,12 @@
 EXPERIENCE = [
     {
-        "duration": "2025",
-        "role": "Web Developer Trainee",
-        "company": "White Soft Info",
+        "duration": "20 May 2024 – 20 June 2024",
+        "role": "Data Analytics Intern",
+        "company": "Unified Mentor Pvt. Ltd.",
         "points": [
-            "Worked with WordPress, HTML and CSS in a structured training environment.",
-            "Built practical understanding of responsive interfaces and web workflows.",
+            "Completed a one-month internship at Unified Mentor, focused on data science and analytics.",
+            "Successfully completed the internship and received a Certificate of Internship from Unified Mentor Pvt. Ltd.",
         ],
-        "tech": ["WordPress", "HTML", "CSS"],
+        "tech": ["Data Analytics", "Data Science"],
     },
 ]
