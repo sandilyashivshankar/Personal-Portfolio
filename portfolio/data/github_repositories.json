@@ -1,156 +1,25 @@
 [
-  {
-    "name": "001",
-    "full_name": "sandilyashivshankar/001",
-    "url": "https://github.com/sandilyashivshankar/001",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "002",
-    "full_name": "sandilyashivshankar/002",
-    "url": "https://github.com/sandilyashivshankar/002",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "003",
-    "full_name": "sandilyashivshankar/003",
-    "url": "https://github.com/sandilyashivshankar/003",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "004",
-    "full_name": "sandilyashivshankar/004",
-    "url": "https://github.com/sandilyashivshankar/004",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "005",
-    "full_name": "sandilyashivshankar/005",
-    "url": "https://github.com/sandilyashivshankar/005",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "game",
-    "full_name": "sandilyashivshankar/game",
-    "url": "https://github.com/sandilyashivshankar/game",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "HospitalMGMT",
-    "full_name": "sandilyashivshankar/HospitalMGMT",
-    "url": "https://github.com/sandilyashivshankar/HospitalMGMT",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "Cab4X",
-    "full_name": "sandilyashivshankar/Cab4X",
-    "url": "https://github.com/sandilyashivshankar/Cab4X",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "portfolio",
-    "full_name": "sandilyashivshankar/portfolio",
-    "url": "https://github.com/sandilyashivshankar/portfolio",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Placement_Prediction_ml_model_final_project",
-    "full_name": "sandilyashivshankar/Placement_Prediction_ml_model_final_project",
-    "url": "https://github.com/sandilyashivshankar/Placement_Prediction_ml_model_final_project",
-    "language": null,
-    "private": true
-  },
-  {
-    "name": "Understanding_Student_Mental_Health_Analysis",
-    "full_name": "sandilyashivshankar/Understanding_Student_Mental_Health_Analysis",
-    "url": "https://github.com/sandilyashivshankar/Understanding_Student_Mental_Health_Analysis",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Super-Store-Sales-Analysis",
-    "full_name": "sandilyashivshankar/Super-Store-Sales-Analysis",
-    "url": "https://github.com/sandilyashivshankar/Super-Store-Sales-Analysis",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Bank-Management-System",
-    "full_name": "sandilyashivshankar/Bank-Management-System",
-    "url": "https://github.com/sandilyashivshankar/Bank-Management-System",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Shiv_HeartDisease_Prediction_Model",
-    "full_name": "sandilyashivshankar/Shiv_HeartDisease_Prediction_Model",
-    "url": "https://github.com/sandilyashivshankar/Shiv_HeartDisease_Prediction_Model",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Shiv_AI_Nextword_Prediction",
-    "full_name": "sandilyashivshankar/Shiv_AI_Nextword_Prediction",
-    "url": "https://github.com/sandilyashivshankar/Shiv_AI_Nextword_Prediction",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "SS_AI_BotChat",
-    "full_name": "sandilyashivshankar/SS_AI_BotChat",
-    "url": "https://github.com/sandilyashivshankar/SS_AI_BotChat",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "MovieScout",
-    "full_name": "sandilyashivshankar/MovieScout",
-    "url": "https://github.com/sandilyashivshankar/MovieScout",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Shiv_AI_Agent",
-    "full_name": "sandilyashivshankar/Shiv_AI_Agent",
-    "url": "https://github.com/sandilyashivshankar/Shiv_AI_Agent",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Shiv_RAG_AI",
-    "full_name": "sandilyashivshankar/Shiv_RAG_AI",
-    "url": "https://github.com/sandilyashivshankar/Shiv_RAG_AI",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Shiv_AI_Multiagent",
-    "full_name": "sandilyashivshankar/Shiv_AI_Multiagent",
-    "url": "https://github.com/sandilyashivshankar/Shiv_AI_Multiagent",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "sandilyashivshankar",
-    "full_name": "sandilyashivshankar/sandilyashivshankar",
-    "url": "https://github.com/sandilyashivshankar/sandilyashivshankar",
-    "language": null,
-    "private": false
-  },
-  {
-    "name": "Shiv-AI-Video-Assistant",
-    "full_name": "sandilyashivshankar/Shiv-AI-Video-Assistant",
-    "url": "https://github.com/sandilyashivshankar/Shiv-AI-Video-Assistant",
-    "language": "Python",
-    "private": false
-  }
+  {"name":"001","full_name":"sandilyashivshankar/001","url":"https://github.com/sandilyashivshankar/001","language":null,"private":true},
+  {"name":"002","full_name":"sandilyashivshankar/002","url":"https://github.com/sandilyashivshankar/002","language":null,"private":true},
+  {"name":"003","full_name":"sandilyashivshankar/003","url":"https://github.com/sandilyashivshankar/003","language":null,"private":true},
+  {"name":"004","full_name":"sandilyashivshankar/004","url":"https://github.com/sandilyashivshankar/004","language":null,"private":true},
+  {"name":"005","full_name":"sandilyashivshankar/005","url":"https://github.com/sandilyashivshankar/005","language":null,"private":true},
+  {"name":"game","full_name":"sandilyashivshankar/game","url":"https://github.com/sandilyashivshankar/game","language":null,"private":true},
+  {"name":"HospitalMGMT","full_name":"sandilyashivshankar/HospitalMGMT","url":"https://github.com/sandilyashivshankar/HospitalMGMT","language":null,"private":true},
+  {"name":"Cab4X","full_name":"sandilyashivshankar/Cab4X","url":"https://github.com/sandilyashivshankar/Cab4X","language":null,"private":false},
+  {"name":"portfolio","full_name":"sandilyashivshankar/portfolio","url":"https://github.com/sandilyashivshankar/portfolio","language":null,"private":false},
+  {"name":"Placement_Prediction_ml_model_final_project","full_name":"sandilyashivshankar/Placement_Prediction_ml_model_final_project","url":"https://github.com/sandilyashivshankar/Placement_Prediction_ml_model_final_project","language":null,"private":true},
+  {"name":"Understanding_Student_Mental_Health_Analysis","full_name":"sandilyashivshankar/Understanding_Student_Mental_Health_Analysis","url":"https://github.com/sandilyashivshankar/Understanding_Student_Mental_Health_Analysis","language":null,"private":false},
+  {"name":"Super-Store-Sales-Analysis","full_name":"sandilyashivshankar/Super-Store-Sales-Analysis","url":"https://github.com/sandilyashivshankar/Super-Store-Sales-Analysis","language":null,"private":false},
+  {"name":"Bank-Management-System","full_name":"sandilyashivshankar/Bank-Management-System","url":"https://github.com/sandilyashivshankar/Bank-Management-System","language":null,"private":false},
+  {"name":"Shiv_HeartDisease_Prediction_Model","full_name":"sandilyashivshankar/Shiv_HeartDisease_Prediction_Model","url":"https://github.com/sandilyashivshankar/Shiv_HeartDisease_Prediction_Model","language":null,"private":false},
+  {"name":"Shiv_AI_Nextword_Prediction","full_name":"sandilyashivshankar/Shiv_AI_Nextword_Prediction","url":"https://github.com/sandilyashivshankar/Shiv_AI_Nextword_Prediction","language":null,"private":false},
+  {"name":"SS_AI_BotChat","full_name":"sandilyashivshankar/SS_AI_BotChat","url":"https://github.com/sandilyashivshankar/SS_AI_BotChat","language":null,"private":false},
+  {"name":"MovieScout","full_name":"sandilyashivshankar/MovieScout","url":"https://github.com/sandilyashivshankar/MovieScout","language":null,"private":false},
+  {"name":"Shiv_AI_Agent","full_name":"sandilyashivshankar/Shiv_AI_Agent","url":"https://github.com/sandilyashivshankar/Shiv_AI_Agent","language":null,"private":false},
+  {"name":"Shiv_RAG_AI","full_name":"sandilyashivshankar/Shiv_RAG_AI","url":"https://github.com/sandilyashivshankar/Shiv_RAG_AI","language":null,"private":false},
+  {"name":"Shiv_AI_Multiagent","full_name":"sandilyashivshankar/Shiv_AI_Multiagent","url":"https://github.com/sandilyashivshankar/Shiv_AI_Multiagent","language":null,"private":false},
+  {"name":"sandilyashivshankar","full_name":"sandilyashivshankar/sandilyashivshankar","url":"https://github.com/sandilyashivshankar/sandilyashivshankar","language":null,"private":false},
+  {"name":"Shiv-AI-Video-Assistant","full_name":"sandilyashivshankar/Shiv-AI-Video-Assistant","url":"https://github.com/sandilyashivshankar/Shiv-AI-Video-Assistant","language":"Python","private":false},
+  {"name":"Personal-Portfolio","full_name":"sandilyashivshankar/Personal-Portfolio","url":"https://github.com/sandilyashivshankar/Personal-Portfolio","language":"Python","private":false}
 ]
