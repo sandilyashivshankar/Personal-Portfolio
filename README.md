@@ -1,4 +1,6 @@
-#                                       Shiv Shankar Tiwari — Personal Portfolio
+<p align="center">
+  <h1 align="center">Shiv Shankar Tiwari</h1>
+</p>
 
 <p align="center">
   <strong>Data Analyst · Data Scientist · AI/ML Engineer · Generative AI · Prompt Engineering</strong>
@@ -282,8 +284,6 @@ cd Personal-Portfolio
 
 ### 2. Install dependencies
 
-Using pip:
-
 ```bash
 cd portfolio
 pip install -r requirements.txt
@@ -302,17 +302,7 @@ uv pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Or:
-
-```bash
-uv run streamlit run app.py
-```
-
-Then open:
-
-```text
-http://localhost:8501
-```
+Then open `http://localhost:8501`.
 
 ---
 
@@ -320,23 +310,11 @@ http://localhost:8501
 
 The application is prepared for **Streamlit Community Cloud**.
 
-**Entry point:**
+**Entry point:** `portfolio/app.py`
 
-```text
-portfolio/app.py
-```
+**Dependencies:** `portfolio/requirements.txt`
 
-**Dependencies:**
-
-```text
-portfolio/requirements.txt
-```
-
-### Live deployment
-
-**https://sstpersonal-portfolio.streamlit.app/**
-
----
+**Live deployment:** https://sstpersonal-portfolio.streamlit.app/
 
 ---
 
@@ -358,13 +336,16 @@ A recruiter or collaborator can use this repository to quickly explore:
 
 ## 👤 Author
 
-### Shiv Shankar Tiwari
+<p align="center">
+  <strong>SHIV SHANKAR TIWARI</strong><br/>
+  Data Analyst · Data Scientist · AI/ML Engineer · Generative AI · Prompt Engineering
+</p>
 
-**Data Analyst · Data Scientist · AI/ML Engineer · Generative AI · Prompt Engineering**
-
-- 🌐 **Portfolio:** https://sstpersonal-portfolio.streamlit.app/
-- 💻 **GitHub:** https://github.com/sandilyashivshankar
-- 💼 **LinkedIn:** https://www.linkedin.com/in/shivshankar-tiwari/
+<p align="center">
+  <a href="https://github.com/sandilyashivshankar">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/shivshankar-tiwari/">LinkedIn</a> ·
+  <a href="https://sstpersonal-portfolio.streamlit.app/">Live Portfolio</a>
+</p>
 
 ---
 
