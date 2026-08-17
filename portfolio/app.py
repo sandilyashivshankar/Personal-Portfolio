@@ -63,31 +63,102 @@ render_resume()
 render_contact(PROFILE)
 render_footer(PROFILE)
 
+# Streamlit renders st.components.v1.html inside an iframe. Mobile navigation
+# is therefore wired from the parent document instead of relying on inline
+# onclick handlers, which can be unreliable on mobile browsers.
 st.components.v1.html(
     """
     <script>
     (() => {
-      const parent = window.parent;
-      const doc = parent.document;
-      doc.documentElement.classList.add("portfolio-js-ready");
-      const reveal = () => doc.querySelectorAll(".reveal").forEach(el => {
-        const r = el.getBoundingClientRect();
-        if (r.top < parent.innerHeight * .90) el.classList.add("reveal-visible");
-      });
-      const updateActive = () => {
-        const ids = ["home","about","skills","projects","experience","certificates","analytics","services","contact"];
-        let active = "home";
-        ids.forEach(id => { const el = doc.getElementById(id); if (el && el.getBoundingClientRect().top <= parent.innerHeight * .35) active = id; });
-        doc.querySelectorAll(".side-link").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + active));
+      const parentWindow = window.parent;
+      const doc = parentWindow.document;
+
+      const initMobileNavigation = () => {
+        const menuButton = doc.querySelector('.mobile-menu-btn');
+        const drawer = doc.querySelector('.mobile-drawer');
+        const backdrop = doc.querySelector('.mobile-nav-backdrop');
+        if (!menuButton || !drawer || !backdrop) return false;
+
+        const closeButton = drawer.querySelector('.mobile-drawer-head button');
+        const links = drawer.querySelectorAll('a');
+
+        const closeMenu = () => {
+          doc.body.classList.remove('mobile-nav-open');
+          menuButton.setAttribute('aria-expanded', 'false');
+        };
+
+        const toggleMenu = (event) => {
+          if (event) event.preventDefault();
+          const open = !doc.body.classList.contains('mobile-nav-open');
+          doc.body.classList.toggle('mobile-nav-open', open);
+          menuButton.setAttribute('aria-expanded', String(open));
+        };
+
+        if (menuButton.dataset.mobileNavReady !== 'true') {
+          menuButton.addEventListener('click', toggleMenu, {passive: false});
+          menuButton.addEventListener('touchend', toggleMenu, {passive: false});
+          menuButton.dataset.mobileNavReady = 'true';
+        }
+
+        if (backdrop.dataset.mobileNavReady !== 'true') {
+          backdrop.addEventListener('click', closeMenu);
+          backdrop.addEventListener('touchend', closeMenu, {passive: true});
+          backdrop.dataset.mobileNavReady = 'true';
+        }
+
+        if (closeButton && closeButton.dataset.mobileNavReady !== 'true') {
+          closeButton.addEventListener('click', closeMenu);
+          closeButton.addEventListener('touchend', closeMenu, {passive: true});
+          closeButton.dataset.mobileNavReady = 'true';
+        }
+
+        links.forEach(link => {
+          if (link.dataset.mobileNavReady === 'true') return;
+          link.addEventListener('click', closeMenu);
+          link.addEventListener('touchend', closeMenu, {passive: true});
+          link.dataset.mobileNavReady = 'true';
+        });
+
+        menuButton.setAttribute('aria-expanded', doc.body.classList.contains('mobile-nav-open') ? 'true' : 'false');
+        return true;
       };
+
+      const reveal = () => doc.querySelectorAll('.reveal').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < parentWindow.innerHeight * .90) el.classList.add('reveal-visible');
+      });
+
+      const updateActive = () => {
+        const ids = ['home','about','skills','projects','experience','certificates','analytics','services','contact'];
+        let active = 'home';
+        ids.forEach(id => {
+          const el = doc.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= parentWindow.innerHeight * .35) active = id;
+        });
+        doc.querySelectorAll('.side-link').forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+        });
+      };
+
       const onScroll = () => { reveal(); updateActive(); };
-      parent.addEventListener("scroll", onScroll, {passive:true});
-      setTimeout(onScroll, 250);
-      if ("IntersectionObserver" in parent) {
-        const observer = new parent.IntersectionObserver((entries) => {
-          entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("reveal-visible"); });
+      parentWindow.addEventListener('scroll', onScroll, {passive:true});
+
+      let attempts = 0;
+      const boot = () => {
+        if (initMobileNavigation() || attempts >= 20) return;
+        attempts += 1;
+        parentWindow.setTimeout(boot, 150);
+      };
+      boot();
+      parentWindow.setTimeout(onScroll, 250);
+
+      if ('IntersectionObserver' in parentWindow) {
+        const observer = new parentWindow.IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('reveal-visible');
+          });
         }, {threshold:.10});
-        doc.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+        doc.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       }
     })();
     </script>
