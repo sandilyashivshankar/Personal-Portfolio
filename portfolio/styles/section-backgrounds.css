@@ -1,0 +1,21 @@
+/* Cinematic animated backgrounds for every portfolio section except Home. */
+.animated-section{position:relative;isolation:isolate;overflow:hidden}
+.animated-section::before,.animated-section::after{content:"";position:absolute;pointer-events:none;z-index:-1}
+.animated-section::before{inset:-30%;background:radial-gradient(circle at 18% 30%,rgba(34,211,238,.16),transparent 25%),radial-gradient(circle at 82% 70%,rgba(139,92,246,.17),transparent 28%),radial-gradient(circle at 55% 15%,rgba(236,72,153,.10),transparent 22%);filter:blur(30px);animation:sectionAurora 16s ease-in-out infinite alternate}
+.animated-section::after{width:150%;height:220px;left:-25%;top:42%;background:linear-gradient(90deg,transparent,rgba(34,211,238,.055),rgba(139,92,246,.09),rgba(236,72,153,.055),transparent);filter:blur(22px);transform:rotate(-7deg);animation:sectionBeam 11s linear infinite}
+.animated-section > *{position:relative;z-index:1}
+.animated-section .section-wrap,.animated-section.section-wrap{background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:70px 70px;animation:sectionGrid 28s linear infinite}
+.animated-section .section-wrap::before,.animated-section.section-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 25%,rgba(5,6,10,.28) 82%);pointer-events:none}
+#about.animated-section::before{animation-duration:18s}
+#skills.animated-section::before{animation-duration:13s;transform:rotate(25deg)}
+#projects.animated-section::before{animation-duration:20s}
+#experience.animated-section::before{animation-duration:15s;transform:rotate(-18deg)}
+#certificates.animated-section::before{animation-duration:17s}
+#analytics.animated-section::before{animation-duration:12s;transform:scale(1.1)}
+#services.animated-section::before{animation-duration:19s}
+#contact.animated-section::before{animation-duration:14s}
+@keyframes sectionAurora{0%{transform:translate3d(-4%,2%,0) scale(1);opacity:.65}50%{transform:translate3d(5%,-4%,0) scale(1.08);opacity:1}100%{transform:translate3d(-1%,6%,0) scale(.98);opacity:.72}}
+@keyframes sectionBeam{0%{transform:translateX(-35%) rotate(-7deg)}100%{transform:translateX(35%) rotate(-7deg)}}
+@keyframes sectionGrid{0%{background-position:0 0,0 0}100%{background-position:140px 90px,140px 90px}}
+@media(max-width:900px){.animated-section::before{inset:-45%;filter:blur(24px);opacity:.72}.animated-section::after{height:160px;top:45%;opacity:.7}.animated-section .section-wrap,.animated-section.section-wrap{background-size:52px 52px}}
+@media(prefers-reduced-motion:reduce){.animated-section::before,.animated-section::after,.animated-section .section-wrap,.animated-section.section-wrap{animation:none!important}}
