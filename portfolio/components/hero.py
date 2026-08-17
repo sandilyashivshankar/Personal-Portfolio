@@ -49,6 +49,7 @@ def render_hero(profile: dict):
 <a class="social-pill" href="{html.escape(profile["linkedin"])}" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
 <a class="social-pill" href="mailto:{html.escape(profile["email"])}" aria-label="Email">✉</a>
 </div>
+<a class="btn btn-ghost hero-connect-bottom" href="#contact">Let's Connect</a>
 <div class="scroll-cue">SCROLL <span class="line"></span></div>
 </section>
 """
