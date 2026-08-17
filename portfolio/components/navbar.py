@@ -1,11 +1,16 @@
 import streamlit as st
 
+PROFILE_PHOTO_URL = "https://raw.githubusercontent.com/sandilyashivshankar/Personal-Portfolio/main/Shiv_PF.jpeg"
+
 
 def render_navbar():
     st.markdown(
-        """
+        f"""
         <nav class="portfolio-sidebar" aria-label="Portfolio sections">
-          <a class="sidebar-brand" href="#home" aria-label="Home"><span class="brand-orbit"></span><span class="brand-core">SST</span></a>
+          <a class="sidebar-brand" href="#home" aria-label="Home">
+            <span class="brand-orbit"></span>
+            <span class="brand-core brand-photo"><img src="{PROFILE_PHOTO_URL}" alt="Shiv Shankar Tiwari"></span>
+          </a>
           <div class="sidebar-nav">
             <a class="side-link active" href="#home"><span class="side-icon">⌂</span><span class="side-label">Home</span></a>
             <a class="side-link" href="#about"><span class="side-icon">◎</span><span class="side-label">About</span></a>
@@ -19,7 +24,7 @@ def render_navbar():
           </div>
           <div class="sidebar-status"><span></span><small>AVAILABLE</small></div>
         </nav>
-        <div class="mobile-topbar"><a class="mobile-brand" href="#home">SST<span>.</span></a><button class="mobile-menu-btn" type="button" aria-label="Open navigation" onclick="document.body.classList.toggle('mobile-nav-open')">☰</button></div>
+        <div class="mobile-topbar"><a class="mobile-brand" href="#home"><img src="{PROFILE_PHOTO_URL}" alt="Shiv Shankar Tiwari"> <span>SST.</span></a><button class="mobile-menu-btn" type="button" aria-label="Open navigation" onclick="document.body.classList.toggle('mobile-nav-open')">☰</button></div>
         <div class="mobile-nav-backdrop" onclick="document.body.classList.remove('mobile-nav-open')"></div>
         <nav class="mobile-drawer" aria-label="Mobile portfolio sections">
           <div class="mobile-drawer-head"><strong>Explore</strong><button type="button" onclick="document.body.classList.remove('mobile-nav-open')">×</button></div>
