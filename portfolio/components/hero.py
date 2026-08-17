@@ -36,6 +36,7 @@ def render_hero(profile: dict):
     markup = f"""
 <section id="home" class="hero hero-3d hero-reference-style">
 <div class="hero-photo-backdrop" style="background-image:url('{PROFILE_PHOTO_URL}')"></div>
+<div class="hero-landscape" aria-hidden="true"><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div><div class="hero-wave wave-pink"></div><div class="hero-wave wave-blue"></div></div>
 <div class="hero-depth-grid"></div>
 <div class="hero-orb orb-left"></div>
 <div class="hero-orb orb-right"></div>
