@@ -43,7 +43,7 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css", "styles/section-backgrounds.css"):
+for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css", "styles/section-backgrounds.css", "styles/skills-cinematic.css"):
     css_path = BASE_DIR / stylesheet
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
@@ -63,9 +63,6 @@ render_resume()
 render_contact(PROFILE)
 render_footer(PROFILE)
 
-# Streamlit renders st.components.v1.html inside an iframe. Mobile navigation
-# is therefore wired from the parent document instead of relying on inline
-# onclick handlers, which can be unreliable on mobile browsers.
 st.components.v1.html(
     """
     <script>
@@ -74,7 +71,6 @@ st.components.v1.html(
       const doc = parentWindow.document;
       const animatedSectionIds = ['about','skills','projects','experience','certificates','analytics','services','contact'];
 
-      // Give every non-home section its own animated atmospheric layer.
       const initSectionBackgrounds = () => {
         animatedSectionIds.forEach(id => {
           const section = doc.getElementById(id);
