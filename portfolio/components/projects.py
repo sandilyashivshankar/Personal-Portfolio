@@ -11,14 +11,16 @@ def _safe_url(value: str) -> str:
 
 def _project_visual(project: dict) -> str:
     image = project.get("image", "")
+    featured_badge = '<span class="project-featured-badge">★ Featured</span>' if project.get("featured") else ""
     if image:
         return (
             f'<div class="project-card-media project-visual" style="background-image:'
-            f'linear-gradient(135deg, rgba(5,6,10,.20), rgba(5,6,10,.82)), url(\'{_safe_url(image)}\')">'
+            f'linear-gradient(135deg, rgba(5,6,10,.16), rgba(5,6,10,.78)), url(\'{_safe_url(image)}\')">'
             f'<div class="project-visual-overlay"><span class="project-live-dot"></span>'
-            f'<span>{html.escape(project.get("type", "Project"))}</span></div></div>'
+            f'<span>{html.escape(project.get("type", "Project"))}</span></div>'
+            f'{featured_badge}</div>'
         )
-    return '<div class="project-card-media project-visual project-visual-fallback"><span>✦</span></div>'
+    return f'<div class="project-card-media project-visual project-visual-fallback"><span>✦</span>{featured_badge}</div>'
 
 
 def project_card(project):
@@ -52,38 +54,6 @@ def render_projects(projects):
         "Seven highlighted builds across Generative AI, RAG, agentic systems, machine learning and business intelligence."
     )
 
-    featured = next((p for p in projects if p.get("featured")), projects[0])
-    feature_list = "".join(f"<li>{html.escape(x)}</li>" for x in featured["features"])
-    featured_image = _safe_url(featured.get("image", ""))
-    featured_demo = featured.get("demo", "")
-    featured_demo_html = (
-        f'<a class="btn btn-primary" href="{_safe_url(featured_demo)}" target="_blank" rel="noreferrer">Live Demo ↗</a>'
-        if featured_demo else ""
-    )
-
-    st.markdown(
-        f"""
-<div class="featured-project reveal featured-project-image" style="--featured-image:url('{featured_image}')">
-  <div class="featured-project-content">
-    <span class="featured-badge">★ Featured project</span>
-    <div class="featured-project-kicker">{html.escape(featured["type"])}</div>
-    <h3>{html.escape(featured["title"])}</h3>
-    <p class="desc">{html.escape(featured["description"])}</p>
-    <div class="featured-grid">
-      <div>
-        <div class="tech-badges">{tech_badges(featured["tech"])}</div>
-        <div class="hero-ctas" style="justify-content:flex-start;margin:1.2rem 0 0;">
-          {featured_demo_html}
-        </div>
-      </div>
-      <ul class="feature-list">{feature_list}</ul>
-    </div>
-  </div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
-
     categories = ["All", "AI/ML", "Data Analytics"]
     pills = "".join(
         f'<button class="filter-pill {"active" if i == 0 else ""}" onclick="window.__filterProjects(\'{html.escape(c)}\', this)">{html.escape(c)}</button>'
@@ -91,10 +61,10 @@ def render_projects(projects):
     )
     st.markdown(f'<div class="project-filter">{pills}</div>', unsafe_allow_html=True)
 
-    # The featured project is already rendered above; only render the remaining
-    # project cards here so Shiv AI Video Assistant appears once.
-    remaining_projects = [p for p in projects if p is not featured]
-    cards = "".join(project_card(project) for project in remaining_projects)
+    # Every project now uses the same card structure, dimensions and visual
+    # hierarchy. Shiv AI Video Assistant remains featured only through a small
+    # badge, so it no longer looks like a separate component.
+    cards = "".join(project_card(project) for project in projects)
     st.markdown(f'<div class="project-grid">{cards}</div>', unsafe_allow_html=True)
 
     st.components.v1.html(
