@@ -1,4 +1,4 @@
-# Shiv Shankar Tiwari — Personal Portfolio
+#                                       Shiv Shankar Tiwari — Personal Portfolio
 
 <p align="center">
   <strong>Data Analyst · Data Scientist · AI/ML Engineer · Generative AI · Prompt Engineering</strong>
@@ -337,23 +337,6 @@ portfolio/requirements.txt
 **https://sstpersonal-portfolio.streamlit.app/**
 
 ---
-
-## 🔐 Security
-
-Secrets and credentials should never be committed to the repository.
-
-Do not commit:
-
-```text
-.env
-API keys
-Streamlit secrets
-authentication tokens
-GitHub tokens
-private credentials
-```
-
-Use environment variables during local development and **Streamlit Secrets** for deployed applications.
 
 ---
 
