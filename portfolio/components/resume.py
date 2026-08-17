@@ -1,6 +1,9 @@
-from pathlib import Path
+import requests
 import streamlit as st
 from .common import section_heading
+
+
+CV_URL = "https://raw.githubusercontent.com/sandilyashivshankar/Personal-Portfolio/main/SST_PF_CV.pdf"
 
 
 def render_resume():
@@ -8,10 +11,8 @@ def render_resume():
     section_heading(
         "10 / RESUME",
         "One page. <span class='accent'>Full story</span>.",
-        "Your latest CV is available directly from the portfolio."
+        "Your latest CV uploaded to the portfolio repository is available directly here."
     )
-
-    resume_path = Path("SST_PF_CV.pdf")
 
     st.markdown(
         """
@@ -19,7 +20,7 @@ def render_resume():
           <div class="icon">▤</div>
           <h3 style="margin-bottom:.4rem">Professional CV</h3>
           <p style="color:var(--text-2);max-width:620px;margin:0 auto">
-            Data Analyst profile focused on Python, data analytics, business intelligence,
+            Data Analyst profile focused on data analytics, Python, business intelligence,
             AI/ML, generative AI and practical analytics projects.
           </p>
         </div>
@@ -27,15 +28,17 @@ def render_resume():
         unsafe_allow_html=True,
     )
 
-    if resume_path.exists():
+    try:
+        response = requests.get(CV_URL, timeout=15)
+        response.raise_for_status()
         st.download_button(
             "Download CV ↓",
-            resume_path.read_bytes(),
+            response.content,
             file_name="Shiv_Shankar_Tiwari_CV.pdf",
             mime="application/pdf",
             use_container_width=True,
         )
-    else:
-        st.error("The CV file could not be found in the portfolio repository.")
+    except requests.RequestException:
+        st.link_button("Open CV ↗", CV_URL, use_container_width=True)
 
     st.markdown("</section>", unsafe_allow_html=True)
