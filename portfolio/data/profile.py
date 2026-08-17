@@ -5,27 +5,27 @@ PROFILE = {
     "roles": [
         "Data Analyst",
         "Data Scientist",
-        "AI & ML Enthusiast",
-        "BI Developer",
-        "Problem Solver",
+        "AI/ML Engineer",
+        "Generative AI",
+        "Prompt Engineering",
     ],
     "location": "Lucknow, Uttar Pradesh, India",
     "email": "shivshankartiwari312@gmail.com",
     "github": "https://github.com/sandilyashivshankar",
-    "linkedin": "https://www.linkedin.com/in/sandilyashivshankar/",
+    "linkedin": "https://www.linkedin.com/in/shivshankar-tiwari/",
     "objective": (
-        "I transform complex data into meaningful insights, build intelligent solutions, "
-        "and use analytical thinking, AI/ML and automation to solve real-world problems."
+        "I transform complex data into meaningful insights and build practical intelligent solutions "
+        "using data analytics, AI/ML, generative AI and prompt engineering."
     ),
     "about": (
-        "I am a Computer Science graduate focused on Data Analytics, Data Science, Artificial Intelligence "
-        "and Machine Learning. I enjoy turning messy information into clear stories, useful dashboards, "
-        "business intelligence and practical intelligent applications."
+        "I am a Computer Science graduate specializing in Data Science and Artificial Intelligence. "
+        "My focus is on Data Analytics, Data Science, AI/ML, Generative AI and Business Intelligence. "
+        "I enjoy turning data into clear insights, dashboards and practical intelligent applications."
     ),
     "education": "B.Tech in Computer Science Engineering — Data Science & Artificial Intelligence",
     "university": "Shree Ram Swaroop Memorial University, Lucknow",
     "languages": ["Hindi", "English"],
-    "interests": ["Cricket", "Data", "AI", "Building useful products"],
+    "interests": ["Cricket", "Data Analytics", "AI", "Building useful products"],
 }
 
 STATS = [
