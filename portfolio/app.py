@@ -43,7 +43,7 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css", "styles/section-backgrounds.css", "styles/skills-cinematic.css", "styles/about-cinematic.css"):
+for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css", "styles/section-backgrounds.css", "styles/skills-cinematic.css", "styles/about-cinematic.css", "styles/certificates-cinematic.css"):
     css_path = BASE_DIR / stylesheet
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
