@@ -11,16 +11,15 @@ def _safe_url(value: str) -> str:
 
 def _project_visual(project: dict) -> str:
     image = project.get("image", "")
-    featured_badge = '<span class="project-featured-badge">★ Featured</span>' if project.get("featured") else ""
     if image:
         return (
             f'<div class="project-card-media project-visual" style="background-image:'
             f'linear-gradient(135deg, rgba(5,6,10,.16), rgba(5,6,10,.78)), url(\'{_safe_url(image)}\')">'
             f'<div class="project-visual-overlay"><span class="project-live-dot"></span>'
             f'<span>{html.escape(project.get("type", "Project"))}</span></div>'
-            f'{featured_badge}</div>'
+            f'</div>'
         )
-    return f'<div class="project-card-media project-visual project-visual-fallback"><span>✦</span>{featured_badge}</div>'
+    return '<div class="project-card-media project-visual project-visual-fallback"><span>✦</span></div>'
 
 
 def project_card(project):
@@ -61,9 +60,7 @@ def render_projects(projects):
     )
     st.markdown(f'<div class="project-filter">{pills}</div>', unsafe_allow_html=True)
 
-    # Every project now uses the same card structure, dimensions and visual
-    # hierarchy. Shiv AI Video Assistant remains featured only through a small
-    # badge, so it no longer looks like a separate component.
+    # Every project uses the same card structure and visual hierarchy.
     cards = "".join(project_card(project) for project in projects)
     st.markdown(f'<div class="project-grid">{cards}</div>', unsafe_allow_html=True)
 
