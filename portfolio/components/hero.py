@@ -43,11 +43,11 @@ def render_hero(profile: dict):
 <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
 <a class="btn btn-ghost" href="#contact">Let's Connect</a>
 </div>
-<div class="hero-socials">
-<a class="social-pill" href="{html.escape(profile["github"])}" target="_blank" rel="noreferrer">GH</a>
-<a class="social-pill" href="{html.escape(profile["linkedin"])}" target="_blank" rel="noreferrer">in</a>
-<a class="social-pill" href="mailto:{html.escape(profile["email"])}">✉</a>
 </div>
+<div class="hero-socials hero-socials-bottom">
+<a class="social-pill" href="{html.escape(profile["github"])}" target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+<a class="social-pill" href="{html.escape(profile["linkedin"])}" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+<a class="social-pill" href="mailto:{html.escape(profile["email"])}" aria-label="Email">✉</a>
 </div>
 <div class="scroll-cue">SCROLL <span class="line"></span></div>
 </section>
