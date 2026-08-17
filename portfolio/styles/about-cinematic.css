@@ -1,66 +1,112 @@
-/* Premium cinematic motion layer for About. */
+/* Premium cinematic motion layer for the About / one-page story section. */
 #about {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(circle at 8% 18%, rgba(112, 80, 255, .15), transparent 28%),
-    radial-gradient(circle at 92% 80%, rgba(0, 218, 255, .12), transparent 30%),
-    linear-gradient(135deg, rgba(6,8,17,.78), rgba(9,13,26,.72));
+    radial-gradient(ellipse at 8% 12%, rgba(74, 222, 255, .16), transparent 26%),
+    radial-gradient(ellipse at 92% 22%, rgba(139, 92, 246, .20), transparent 29%),
+    radial-gradient(ellipse at 50% 105%, rgba(236, 72, 153, .14), transparent 32%),
+    linear-gradient(135deg, rgba(3, 6, 18, .96), rgba(8, 10, 27, .90) 48%, rgba(5, 8, 20, .96));
 }
 
+/* Deep moving cinematic aurora */
 #about::before {
   content: "";
   position: absolute;
-  inset: -35%;
+  inset: -45%;
   z-index: -3;
   pointer-events: none;
   background:
-    conic-gradient(from 35deg at 50% 50%, transparent 0 20%, rgba(91,82,255,.08) 24%, transparent 31% 50%, rgba(0,225,255,.07) 56%, transparent 64% 100%);
-  filter: blur(12px);
-  animation: aboutRays 20s linear infinite;
+    radial-gradient(circle at 18% 25%, rgba(0, 229, 255, .26) 0 3%, transparent 14%),
+    radial-gradient(circle at 78% 24%, rgba(124, 92, 255, .27) 0 4%, transparent 17%),
+    radial-gradient(circle at 70% 78%, rgba(255, 59, 184, .20) 0 3%, transparent 15%),
+    conic-gradient(from 20deg at 50% 50%, transparent 0 16%, rgba(34, 211, 238, .07) 21%, transparent 30% 46%, rgba(139, 92, 246, .10) 53%, transparent 64% 79%, rgba(236, 72, 153, .07) 86%, transparent 94%);
+  filter: blur(18px) saturate(135%);
+  animation: aboutCinematicAurora 18s ease-in-out infinite alternate;
 }
 
+/* Light beams + film-like atmospheric glow */
 #about::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -20%;
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(circle at 22% 30%, rgba(118, 87, 255, .24), transparent 11%),
-    radial-gradient(circle at 76% 66%, rgba(0, 214, 255, .20), transparent 12%),
-    radial-gradient(circle at 48% 92%, rgba(255, 79, 183, .11), transparent 10%);
-  filter: blur(30px);
-  animation: aboutAurora 12s ease-in-out infinite alternate;
+    linear-gradient(112deg, transparent 28%, rgba(0, 225, 255, .055) 38%, transparent 46%),
+    linear-gradient(72deg, transparent 50%, rgba(139, 92, 246, .065) 59%, transparent 68%),
+    radial-gradient(ellipse at 50% 45%, transparent 30%, rgba(0, 0, 0, .20) 78%);
+  filter: blur(10px);
+  animation: aboutLightSweep 13s ease-in-out infinite alternate;
+}
+
+/* Moving star / data-particle field without extra DOM elements */
+#about .about-intro,
+#about .stats-grid,
+#about .about-grid {
+  position: relative;
+  z-index: 2;
+}
+
+#about .about-intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: .7;
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(255,255,255,.75) 0 1px, transparent 2px),
+    radial-gradient(circle at 27% 72%, rgba(34,211,238,.65) 0 1px, transparent 2px),
+    radial-gradient(circle at 58% 18%, rgba(255,255,255,.55) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 62%, rgba(167,139,250,.75) 0 1px, transparent 2px),
+    radial-gradient(circle at 93% 27%, rgba(255,255,255,.5) 0 1px, transparent 2px);
+  background-size: 210px 170px, 260px 220px, 310px 190px, 240px 230px, 330px 210px;
+  animation: aboutParticles 12s linear infinite;
 }
 
 #about .about-intro {
-  position: relative;
-  padding: 1.4rem 1.5rem 1.8rem;
-  border: 1px solid rgba(255,255,255,.07);
+  margin-bottom: 2.4rem;
+  padding: 1.55rem 1.6rem 1.9rem;
+  border: 1px solid rgba(255,255,255,.09);
   border-radius: 28px;
-  background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
-  box-shadow: 0 24px 80px rgba(0,0,0,.20), inset 0 1px rgba(255,255,255,.05);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.065), rgba(255,255,255,.018)),
+    radial-gradient(circle at 92% 0%, rgba(34,211,238,.10), transparent 30%);
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.34),
+    inset 0 1px rgba(255,255,255,.08),
+    0 0 70px rgba(56,189,248,.035);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   overflow: hidden;
 }
 
 #about .about-intro::before {
   content: "";
   position: absolute;
-  width: 240px;
-  height: 240px;
-  right: -100px;
-  top: -130px;
+  width: 360px;
+  height: 360px;
+  right: -150px;
+  top: -200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(91,82,255,.26), transparent 67%);
+  background:
+    radial-gradient(circle, rgba(34,211,238,.24), rgba(124,92,255,.10) 35%, transparent 68%);
   filter: blur(8px);
   animation: aboutOrb 8s ease-in-out infinite;
+}
+
+#about .about-identity,
+#about .about-lead {
+  position: relative;
+  z-index: 3;
 }
 
 #about .role-chip,
 #about .tag-chip {
   animation: aboutChipFloat 5s ease-in-out infinite;
+  box-shadow: 0 8px 30px rgba(34,211,238,.07);
 }
 
 #about .role-chip:nth-child(2n),
@@ -77,29 +123,39 @@
 
 #about .stat-card:hover,
 #about .building-card:hover {
-  transform: translateY(-8px) rotateX(2deg);
-  box-shadow: 0 28px 70px rgba(0,0,0,.28), 0 0 35px rgba(0,214,255,.07);
-  border-color: rgba(255,255,255,.14);
+  transform: translateY(-8px) rotateX(2deg) scale(1.01);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.30),
+    0 0 38px rgba(0,214,255,.09),
+    inset 0 1px rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.17);
 }
 
 #about .stat-number {
-  text-shadow: 0 0 24px rgba(0, 214, 255, .18);
+  text-shadow: 0 0 26px rgba(0, 214, 255, .24);
 }
 
-@keyframes aboutRays {
-  from { transform: rotate(0deg) scale(1.08); }
-  to { transform: rotate(360deg) scale(1.08); }
+@keyframes aboutCinematicAurora {
+  0% { transform: translate3d(-5%, 2%, 0) rotate(-3deg) scale(1); opacity: .72; }
+  35% { transform: translate3d(4%, -4%, 0) rotate(2deg) scale(1.08); opacity: .96; }
+  70% { transform: translate3d(-2%, 5%, 0) rotate(-1deg) scale(1.03); opacity: .82; }
+  100% { transform: translate3d(6%, 1%, 0) rotate(4deg) scale(1.10); opacity: 1; }
 }
 
-@keyframes aboutAurora {
-  0% { transform: translate3d(-2%, 1%, 0) scale(1); }
-  50% { transform: translate3d(3%, -2%, 0) scale(1.08); }
-  100% { transform: translate3d(-1%, 3%, 0) scale(1.02); }
+@keyframes aboutLightSweep {
+  0% { transform: translate3d(-10%, -3%, 0) rotate(-2deg) scale(1); opacity: .45; }
+  50% { transform: translate3d(5%, 3%, 0) rotate(1deg) scale(1.06); opacity: .85; }
+  100% { transform: translate3d(12%, -2%, 0) rotate(3deg) scale(1.02); opacity: .58; }
+}
+
+@keyframes aboutParticles {
+  from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 110px -70px, -90px 100px, 130px 55px, -120px -85px, 80px 120px; }
 }
 
 @keyframes aboutOrb {
   0%,100% { transform: translate3d(0,0,0) scale(1); }
-  50% { transform: translate3d(-35px, 28px, 0) scale(1.18); }
+  50% { transform: translate3d(-45px, 34px, 0) scale(1.20); }
 }
 
 @keyframes aboutChipFloat {
@@ -109,14 +165,16 @@
 
 @media (max-width: 768px) {
   #about .about-intro { border-radius: 20px; padding: 1rem; }
-  #about::before { animation-duration: 28s; }
-  #about::after { filter: blur(24px); }
+  #about::before { animation-duration: 25s; }
+  #about::after { filter: blur(16px); }
+  #about .about-intro::after { opacity: .45; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   #about::before,
   #about::after,
   #about .about-intro::before,
+  #about .about-intro::after,
   #about .role-chip,
   #about .tag-chip { animation: none; }
   #about .stat-card,
