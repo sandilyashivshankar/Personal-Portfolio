@@ -7,7 +7,7 @@ SKILLS = {
     "Programming": ["Python", "Java", "C"],
     "Data Analytics": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA", "Data Cleaning"],
     "AI / Machine Learning": ["Machine Learning", "Scikit-learn", "TensorFlow", "AI"],
-    "Generative AI & LLM": ["GenAI", "LLM", "RAG", "AI Agents", "Prompt Engineering"],
+    "Generative AI & LLM": ["GenAI", "LLM", "LangChain", "RAG", "AI Agents", "Prompt Engineering"],
     "Databases": ["PostgreSQL", "MySQL"],
     "Visualization": ["Power BI", "Plotly", "Matplotlib"],
     "Tools": ["Git", "GitHub", "Streamlit", "Jupyter Notebook"],
