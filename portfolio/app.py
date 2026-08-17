@@ -34,8 +34,6 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# Streamlit's Markdown parser can interpret deeply-indented multiline HTML as a
-# Markdown code block. Normalize component templates before every markdown render.
 _original_markdown = st.markdown
 
 def _portfolio_markdown(body="", *args, **kwargs):
@@ -45,7 +43,7 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-for stylesheet in ("styles/main.css", "styles/projects.css"):
+for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css"):
     css_path = BASE_DIR / stylesheet
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
@@ -53,7 +51,6 @@ for stylesheet in ("styles/main.css", "styles/projects.css"):
 render_background()
 render_loader()
 render_navbar()
-
 render_hero(PROFILE)
 render_about(PROFILE, STATS)
 render_skills()
@@ -66,37 +63,27 @@ render_resume()
 render_contact(PROFILE)
 render_footer(PROFILE)
 
-# Client-side enhancements are optional; the portfolio remains usable without JS.
 st.components.v1.html(
     """
     <script>
     (() => {
       const parent = window.parent;
       const doc = parent.document;
-      const html = doc.documentElement;
-      html.classList.add("portfolio-js-ready");
-
-      const reveal = () => {
-        doc.querySelectorAll(".reveal").forEach(el => {
-          const r = el.getBoundingClientRect();
-          if (r.top < parent.innerHeight * .90) el.classList.add("reveal-visible");
-        });
-      };
-
+      doc.documentElement.classList.add("portfolio-js-ready");
+      const reveal = () => doc.querySelectorAll(".reveal").forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < parent.innerHeight * .90) el.classList.add("reveal-visible");
+      });
       const onScroll = () => {
         const nav = doc.querySelector(".glass-navbar");
         if (nav) nav.classList.toggle("scrolled", parent.scrollY > 24);
         reveal();
       };
-
       parent.addEventListener("scroll", onScroll, {passive:true});
       setTimeout(onScroll, 250);
-
       if ("IntersectionObserver" in parent) {
         const observer = new parent.IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add("reveal-visible");
-          });
+          entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("reveal-visible"); });
         }, {threshold:.10});
         doc.querySelectorAll(".reveal").forEach(el => observer.observe(el));
       }
