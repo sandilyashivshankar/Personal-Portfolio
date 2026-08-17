@@ -28,6 +28,7 @@ def render_hero(profile: dict):
     photo_html = _load_profile_photo()
     markup = f"""
 <section id="home" class="hero hero-3d">
+<div class="hero-photo-backdrop" style="background-image:url('{PROFILE_PHOTO_URL}')"></div>
 <div class="hero-depth-grid"></div>
 <div class="hero-floating-card card-a">DATA <b>+</b> AI</div>
 <div class="hero-floating-card card-b">PYTHON <b>◈</b></div>
