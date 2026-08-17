@@ -43,7 +43,7 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css"):
+for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css"):
     css_path = BASE_DIR / stylesheet
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
@@ -78,47 +78,39 @@ st.components.v1.html(
         const drawer = doc.querySelector('.mobile-drawer');
         const backdrop = doc.querySelector('.mobile-nav-backdrop');
         if (!menuButton || !drawer || !backdrop) return false;
-
         const closeButton = drawer.querySelector('.mobile-drawer-head button');
         const links = drawer.querySelectorAll('a');
-
         const closeMenu = () => {
           doc.body.classList.remove('mobile-nav-open');
           menuButton.setAttribute('aria-expanded', 'false');
         };
-
         const toggleMenu = (event) => {
           if (event) event.preventDefault();
           const open = !doc.body.classList.contains('mobile-nav-open');
           doc.body.classList.toggle('mobile-nav-open', open);
           menuButton.setAttribute('aria-expanded', String(open));
         };
-
         if (menuButton.dataset.mobileNavReady !== 'true') {
-          menuButton.addEventListener('click', toggleMenu, {passive: false});
-          menuButton.addEventListener('touchend', toggleMenu, {passive: false});
+          menuButton.addEventListener('click', toggleMenu, {passive:false});
+          menuButton.addEventListener('touchend', toggleMenu, {passive:false});
           menuButton.dataset.mobileNavReady = 'true';
         }
-
         if (backdrop.dataset.mobileNavReady !== 'true') {
           backdrop.addEventListener('click', closeMenu);
-          backdrop.addEventListener('touchend', closeMenu, {passive: true});
+          backdrop.addEventListener('touchend', closeMenu, {passive:true});
           backdrop.dataset.mobileNavReady = 'true';
         }
-
         if (closeButton && closeButton.dataset.mobileNavReady !== 'true') {
           closeButton.addEventListener('click', closeMenu);
-          closeButton.addEventListener('touchend', closeMenu, {passive: true});
+          closeButton.addEventListener('touchend', closeMenu, {passive:true});
           closeButton.dataset.mobileNavReady = 'true';
         }
-
         links.forEach(link => {
           if (link.dataset.mobileNavReady === 'true') return;
           link.addEventListener('click', closeMenu);
-          link.addEventListener('touchend', closeMenu, {passive: true});
+          link.addEventListener('touchend', closeMenu, {passive:true});
           link.dataset.mobileNavReady = 'true';
         });
-
         menuButton.setAttribute('aria-expanded', doc.body.classList.contains('mobile-nav-open') ? 'true' : 'false');
         return true;
       };
@@ -127,7 +119,6 @@ st.components.v1.html(
         const r = el.getBoundingClientRect();
         if (r.top < parentWindow.innerHeight * .90) el.classList.add('reveal-visible');
       });
-
       const updateActive = () => {
         const ids = ['home','about','skills','projects','experience','certificates','analytics','services','contact'];
         let active = 'home';
@@ -135,14 +126,10 @@ st.components.v1.html(
           const el = doc.getElementById(id);
           if (el && el.getBoundingClientRect().top <= parentWindow.innerHeight * .35) active = id;
         });
-        doc.querySelectorAll('.side-link').forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + active);
-        });
+        doc.querySelectorAll('.side-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active));
       };
-
       const onScroll = () => { reveal(); updateActive(); };
       parentWindow.addEventListener('scroll', onScroll, {passive:true});
-
       let attempts = 0;
       const boot = () => {
         if (initMobileNavigation() || attempts >= 20) return;
@@ -151,12 +138,9 @@ st.components.v1.html(
       };
       boot();
       parentWindow.setTimeout(onScroll, 250);
-
       if ('IntersectionObserver' in parentWindow) {
         const observer = new parentWindow.IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('reveal-visible');
-          });
+          entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal-visible'); });
         }, {threshold:.10});
         doc.querySelectorAll('.reveal').forEach(el => observer.observe(el));
       }
