@@ -43,7 +43,7 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css"):
+for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css", "styles/section-motion.css", "styles/section-backgrounds.css"):
     css_path = BASE_DIR / stylesheet
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
@@ -72,6 +72,15 @@ st.components.v1.html(
     (() => {
       const parentWindow = window.parent;
       const doc = parentWindow.document;
+      const animatedSectionIds = ['about','skills','projects','experience','certificates','analytics','services','contact'];
+
+      // Give every non-home section its own animated atmospheric layer.
+      const initSectionBackgrounds = () => {
+        animatedSectionIds.forEach(id => {
+          const section = doc.getElementById(id);
+          if (section) section.classList.add('animated-section');
+        });
+      };
 
       const initMobileNavigation = () => {
         const menuButton = doc.querySelector('.mobile-menu-btn');
@@ -128,10 +137,11 @@ st.components.v1.html(
         });
         doc.querySelectorAll('.side-link').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active));
       };
-      const onScroll = () => { reveal(); updateActive(); };
+      const onScroll = () => { initSectionBackgrounds(); reveal(); updateActive(); };
       parentWindow.addEventListener('scroll', onScroll, {passive:true});
       let attempts = 0;
       const boot = () => {
+        initSectionBackgrounds();
         if (initMobileNavigation() || attempts >= 20) return;
         attempts += 1;
         parentWindow.setTimeout(boot, 150);
