@@ -1,0 +1,114 @@
+/* Cinematic background for Skills only. Home remains untouched. */
+#skills {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 25%, rgba(103, 80, 255, .16), transparent 30%),
+    radial-gradient(circle at 88% 72%, rgba(0, 224, 255, .13), transparent 30%),
+    linear-gradient(135deg, rgba(7, 9, 18, .86), rgba(8, 12, 24, .72));
+}
+
+#skills::before,
+#skills::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  z-index: -2;
+}
+
+#skills::before {
+  background:
+    repeating-linear-gradient(115deg, transparent 0 70px, rgba(255,255,255,.025) 71px 72px),
+    radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(0,0,0,.34) 75%);
+  animation: skillsGridDrift 18s linear infinite;
+}
+
+#skills::after {
+  background:
+    radial-gradient(circle at 18% 32%, rgba(129, 92, 255, .28), transparent 16%),
+    radial-gradient(circle at 78% 62%, rgba(0, 214, 255, .22), transparent 17%),
+    radial-gradient(circle at 52% 88%, rgba(255, 73, 178, .12), transparent 13%);
+  filter: blur(34px);
+  animation: skillsAurora 11s ease-in-out infinite alternate;
+}
+
+#skills .section-heading,
+#skills .skills-grid { position: relative; z-index: 2; }
+
+#skills .skill-category-card {
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transform: translateZ(0);
+}
+
+#skills .skill-category-card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -80px;
+  top: -90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(111, 98, 255, .20), transparent 68%);
+  filter: blur(8px);
+  animation: skillOrb 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+#skills .skill-category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.06) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: skillShimmer 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+#skills .skill-pill {
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+}
+
+#skills .skill-pill:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 10px 28px rgba(0, 214, 255, .16);
+}
+
+@keyframes skillsGridDrift {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(70px,-55px,0); }
+}
+
+@keyframes skillsAurora {
+  0% { transform: translate3d(-3%, 2%, 0) scale(1); }
+  50% { transform: translate3d(4%, -3%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, 5%, 0) scale(1.02); }
+}
+
+@keyframes skillOrb {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-24px, 20px, 0) scale(1.18); }
+}
+
+@keyframes skillShimmer {
+  0%, 55% { transform: translateX(-120%); }
+  75%, 100% { transform: translateX(120%); }
+}
+
+@media (max-width: 768px) {
+  #skills::after { filter: blur(28px); }
+  #skills::before { animation-duration: 24s; }
+  #skills .skill-category-card::after { animation-duration: 10s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #skills::before,
+  #skills::after,
+  #skills .skill-category-card::before,
+  #skills .skill-category-card::after { animation: none; }
+  #skills .skill-pill { transition: none; }
+}
