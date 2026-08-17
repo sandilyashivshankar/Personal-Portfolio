@@ -43,7 +43,7 @@ def _portfolio_markdown(body="", *args, **kwargs):
 
 st.markdown = _portfolio_markdown
 
-for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css"):
+for stylesheet in ("styles/main.css", "styles/projects.css", "styles/immersive.css", "styles/sidebar.css"):
     css_path = BASE_DIR / stylesheet
     if css_path.exists():
         st.markdown(f"<style>{css_path.read_text(encoding='utf-8')}</style>", unsafe_allow_html=True)
@@ -74,11 +74,13 @@ st.components.v1.html(
         const r = el.getBoundingClientRect();
         if (r.top < parent.innerHeight * .90) el.classList.add("reveal-visible");
       });
-      const onScroll = () => {
-        const nav = doc.querySelector(".glass-navbar");
-        if (nav) nav.classList.toggle("scrolled", parent.scrollY > 24);
-        reveal();
+      const updateActive = () => {
+        const ids = ["home","about","skills","projects","experience","certificates","analytics","services","contact"];
+        let active = "home";
+        ids.forEach(id => { const el = doc.getElementById(id); if (el && el.getBoundingClientRect().top <= parent.innerHeight * .35) active = id; });
+        doc.querySelectorAll(".side-link").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + active));
       };
+      const onScroll = () => { reveal(); updateActive(); };
       parent.addEventListener("scroll", onScroll, {passive:true});
       setTimeout(onScroll, 250);
       if ("IntersectionObserver" in parent) {
