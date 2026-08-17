@@ -1,0 +1,124 @@
+/* Premium cinematic motion layer for About. */
+#about {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(112, 80, 255, .15), transparent 28%),
+    radial-gradient(circle at 92% 80%, rgba(0, 218, 255, .12), transparent 30%),
+    linear-gradient(135deg, rgba(6,8,17,.78), rgba(9,13,26,.72));
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    conic-gradient(from 35deg at 50% 50%, transparent 0 20%, rgba(91,82,255,.08) 24%, transparent 31% 50%, rgba(0,225,255,.07) 56%, transparent 64% 100%);
+  filter: blur(12px);
+  animation: aboutRays 20s linear infinite;
+}
+
+#about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 30%, rgba(118, 87, 255, .24), transparent 11%),
+    radial-gradient(circle at 76% 66%, rgba(0, 214, 255, .20), transparent 12%),
+    radial-gradient(circle at 48% 92%, rgba(255, 79, 183, .11), transparent 10%);
+  filter: blur(30px);
+  animation: aboutAurora 12s ease-in-out infinite alternate;
+}
+
+#about .about-intro {
+  position: relative;
+  padding: 1.4rem 1.5rem 1.8rem;
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  box-shadow: 0 24px 80px rgba(0,0,0,.20), inset 0 1px rgba(255,255,255,.05);
+  overflow: hidden;
+}
+
+#about .about-intro::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  right: -100px;
+  top: -130px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,82,255,.26), transparent 67%);
+  filter: blur(8px);
+  animation: aboutOrb 8s ease-in-out infinite;
+}
+
+#about .role-chip,
+#about .tag-chip {
+  animation: aboutChipFloat 5s ease-in-out infinite;
+}
+
+#about .role-chip:nth-child(2n),
+#about .tag-chip:nth-child(2n) { animation-delay: -1.5s; }
+#about .role-chip:nth-child(3n),
+#about .tag-chip:nth-child(3n) { animation-delay: -3s; }
+
+#about .stat-card,
+#about .about-text,
+#about .building-card {
+  transform: translateZ(0);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s ease, border-color .45s ease;
+}
+
+#about .stat-card:hover,
+#about .building-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 0 28px 70px rgba(0,0,0,.28), 0 0 35px rgba(0,214,255,.07);
+  border-color: rgba(255,255,255,.14);
+}
+
+#about .stat-number {
+  text-shadow: 0 0 24px rgba(0, 214, 255, .18);
+}
+
+@keyframes aboutRays {
+  from { transform: rotate(0deg) scale(1.08); }
+  to { transform: rotate(360deg) scale(1.08); }
+}
+
+@keyframes aboutAurora {
+  0% { transform: translate3d(-2%, 1%, 0) scale(1); }
+  50% { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.02); }
+}
+
+@keyframes aboutOrb {
+  0%,100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-35px, 28px, 0) scale(1.18); }
+}
+
+@keyframes aboutChipFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@media (max-width: 768px) {
+  #about .about-intro { border-radius: 20px; padding: 1rem; }
+  #about::before { animation-duration: 28s; }
+  #about::after { filter: blur(24px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about::before,
+  #about::after,
+  #about .about-intro::before,
+  #about .role-chip,
+  #about .tag-chip { animation: none; }
+  #about .stat-card,
+  #about .building-card { transition: none; }
+}
