@@ -12,7 +12,7 @@ PROFILE = {
     "location": "Lucknow, Uttar Pradesh, India",
     "email": "shivshankartiwari312@gmail.com",
     "github": "https://github.com/sandilyashivshankar",
-    "linkedin": "https://www.linkedin.com/in/shivshankar-tiwari/",
+    "linkedin": "https://www.linkedin.com/in/sandilyashivshankar/",
     "objective": (
         "I transform complex data into meaningful insights and build practical intelligent solutions "
         "using data analytics, AI/ML, generative AI and prompt engineering."
