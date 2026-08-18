@@ -27,8 +27,8 @@ def _load_profile_photo() -> str:
             suffix = photo_path.suffix.lower()
             mime = "image/png" if suffix == ".png" else "image/jpeg"
             encoded = base64.b64encode(photo_path.read_bytes()).decode("ascii")
-            return f"<img class='hero-photo' src='data:{mime};base64,{encoded}' alt='Shiv Shankar Tiwari profile photo'>"
-    return f"<img class='hero-photo' src='{PROFILE_PHOTO_URL}' alt='Shiv Shankar Tiwari profile photo'>"
+            return f"<img class='hero-photo walking-profile-photo' src='data:{mime};base64,{encoded}' alt='Shiv Shankar Tiwari profile photo'>"
+    return f"<img class='hero-photo walking-profile-photo' src='{PROFILE_PHOTO_URL}' alt='Shiv Shankar Tiwari profile photo'>"
 
 
 def render_hero(profile: dict):
@@ -48,7 +48,7 @@ def render_hero(profile: dict):
 <div class="hero-floating-card card-d"><span class="card-icon">✦</span><strong>AI</strong><em>SOLUTIONS</em></div>
 
 <div class="hero-content-layer">
-  <div class="hero-photo-wrap"><div class="photo-halo"></div>{photo_html}</div>
+  <div class="hero-photo-wrap walking-profile"><div class="photo-halo"></div>{photo_html}</div>
   <div class="hero-reference-kicker">H I&nbsp; • &nbsp;I ' M</div>
   <h1 class="hero-reference-name">{html.escape(profile["name"])}</h1>
   <div class="hero-reference-role">DATA ANALYST <span>•</span> AI ENTHUSIAST <span>•</span> PROBLEM SOLVER</div>
