@@ -1,0 +1,48 @@
+/* Scroll-driven walking profile effect */
+@supports (animation-timeline: scroll()) {
+  .walking-profile {
+    position: fixed !important;
+    z-index: 50 !important;
+    left: 50vw !important;
+    top: 52vh !important;
+    width: clamp(145px, 17vw, 240px) !important;
+    height: clamp(190px, 32vw, 330px) !important;
+    pointer-events: none !important;
+    animation: walk-across-page 1ms linear both !important;
+    animation-timeline: scroll(root block) !important;
+    animation-range: 0% 100% !important;
+  }
+  .walking-profile .hero-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 24px 55px rgba(0,0,0,.4) !important;
+    -webkit-mask-image: linear-gradient(to bottom,transparent 0%,#000 7%,#000 92%,transparent 100%) !important;
+    mask-image: linear-gradient(to bottom,transparent 0%,#000 7%,#000 92%,transparent 100%) !important;
+  }
+  @keyframes walk-across-page {
+    0% { transform: translate3d(30vw,4vh,0) rotate(-2deg) scale(.92); }
+    12% { transform: translate3d(30vw,4vh,0) rotate(2deg) scale(1); }
+    13% { transform: translate3d(8vw,0,0) rotate(-2deg) scale(1); }
+    25% { transform: translate3d(8vw,0,0) rotate(2deg) scale(1.02); }
+    26% { transform: translate3d(-30vw,3vh,0) rotate(-2deg) scale(.96); }
+    38% { transform: translate3d(-30vw,3vh,0) rotate(2deg) scale(1); }
+    39% { transform: translate3d(-8vw,-1vh,0) rotate(-2deg) scale(1.02); }
+    51% { transform: translate3d(-8vw,-1vh,0) rotate(2deg) scale(1); }
+    52% { transform: translate3d(32vw,2vh,0) rotate(-2deg) scale(.96); }
+    64% { transform: translate3d(32vw,2vh,0) rotate(2deg) scale(1); }
+    65% { transform: translate3d(4vw,-2vh,0) rotate(-2deg) scale(1.03); }
+    77% { transform: translate3d(4vw,-2vh,0) rotate(2deg) scale(1); }
+    78% { transform: translate3d(-28vw,1vh,0) rotate(-2deg) scale(.97); }
+    90% { transform: translate3d(-28vw,1vh,0) rotate(2deg) scale(1); }
+    100% { transform: translate3d(20vw,-2vh,0) rotate(-1deg) scale(.94); }
+  }
+}
+@media (max-width:700px) {
+  @supports (animation-timeline: scroll()) {
+    .walking-profile { width:130px !important; height:235px !important; }
+  }
+}
